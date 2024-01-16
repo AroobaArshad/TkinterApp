@@ -74,6 +74,7 @@ class FirstScreen:
         self.root.title("Quiz Time")
         self.root.geometry("820x520+200+30")
         self.root.resizable(0, 0)
+        self.root.iconphoto(False, ImageTk.PhotoImage(file = "Images/8587213.png"))
 
         #Creating a frame within the root window
         self.frame1 = Frame(self.root, width = 820, height = 520)
@@ -262,6 +263,7 @@ class SelectCategory:
         info_box.title("Category Explanation")
         info_box.geometry("400x320+410+150")
         info_box.resizable(0, 0)
+        info_box.iconphoto(False, ImageTk.PhotoImage(file = "Images/8587213.png"))
 
         global infoNewImg
         infoImg = Image.open("Images/S (1).png")
@@ -462,9 +464,6 @@ class SelectDifficulty:
 
         #Creating a Quiz_GUI to display quiz
         ui_quiz = Quiz_GUI(self.root, quiz, self.time_per_question)
-
-        print("You've completed the quiz")
-        print(f"Your final score is: {quiz.score}/{quiz.question_number}")
 
     #Method to get the category id of the selected category
     def get_category_id(self):
@@ -817,6 +816,7 @@ class Quiz_GUI:
         result_window.title("Your Quiz Results")
         result_window.geometry("500x470+400+120")
         result_window.resizable(0, 0)
+        result_window.iconphoto(False, ImageTk.PhotoImage(file = "Images/8587213.png"))
 
         global NewImg
         #Setting a background image
