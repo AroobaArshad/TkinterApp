@@ -16,16 +16,6 @@ import pygame
 #Initializing pygame
 pygame.init()
 
-#Represents a quiz question along with associated attributes
-class Quiz_Question:
-
-    def __init__(self, question: str, correct_answer: str, quiz_choices: list):
-        self.question_text = question
-        self.correct_answer = correct_answer
-
-        #Iniatializing the list of choices for the questions
-        self.quiz_choices = quiz_choices
-
 class Quiz_Logic:
 
     #Iniatializing the variables during the quiz state
@@ -61,6 +51,17 @@ class Quiz_Logic:
         wrong = self.question_number - self.right_answers_given
         percentage_score = int(self.score/self.question_number * 100)
         return (self.score, wrong, percentage_score)
+    
+
+#Represents a quiz question along with associated attributes
+class Quiz_Question:
+
+    def __init__(self, question: str, correct_answer: str, quiz_choices: list):
+        self.question_text = question
+        self.correct_answer = correct_answer
+
+        #Iniatializing the list of choices for the questions
+        self.quiz_choices = quiz_choices
     
 
 #--------------------------------------------------------------------# 
@@ -428,7 +429,7 @@ class SelectDifficulty:
         #Using the selected category to fetch questions from the API
         category_id = self.get_category_id()
 
-        parameters = {
+        trivia_parameters = {
             #No. of questions per quiz
             "amount": 10,
             #Specifying multiple-choice questions
@@ -439,7 +440,8 @@ class SelectDifficulty:
         }
 
         #Making an API request to fetch data from the database
-        response = requests.get(url = "https://opentdb.com/api.php?amount=10", params = parameters)
+
+        response = requests.get(url = "https://opentdb.com/api.php?amount=10", params = trivia_parameters)
         question_data = response.json()["results"]
 
         #Processing data and creating a list of question objects
