@@ -73,6 +73,7 @@ class FirstScreen:
         self.root = root
         self.root.title("Quiz Time")
         self.root.geometry("820x520+200+30")
+        self.root.resizable(0, 0)
 
         #Creating a frame within the root window
         self.frame1 = Frame(self.root, width = 820, height = 520)
@@ -260,6 +261,7 @@ class SelectCategory:
         info_box = Toplevel(self.root)
         info_box.title("Category Explanation")
         info_box.geometry("400x320+410+150")
+        info_box.resizable(0, 0)
 
         global infoNewImg
         infoImg = Image.open("Images/S (1).png")
@@ -814,6 +816,7 @@ class Quiz_GUI:
         result_window = Toplevel(self.root)
         result_window.title("Your Quiz Results")
         result_window.geometry("500x470+400+120")
+        result_window.resizable(0, 0)
 
         global NewImg
         #Setting a background image
